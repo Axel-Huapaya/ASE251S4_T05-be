@@ -1,0 +1,58 @@
+
+# GUÍA DE ARRANQUE RÁPIDO (Comandos Maven)
+
+# 1. Para arrancar en modo LOCAL (usado por defecto):
+#    mvn spring-boot:run
+#
+# 2. Para arrancar en modo CLOUD (Nube / MongoDB Atlas):
+#    mvn spring-boot:run -Dspring-boot.run.profiles=cloud
+
+
+
+# CONFIGURACIÓN GENERAL (Común)
+server:
+  port: 8081
+
+spring:
+  application:
+    name: AgroPacayales-WebFlux
+  profiles:
+    active: local
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+
+logging:
+  level:
+    root: INFO
+    Agropacayales.valleGrande: DEBUG
+    org.springframework.data.mongodb.core.ReactiveMongoTemplate: DEBUG
+
+# PERFIL: LOCAL (Tu computadora / Docker)
+spring:
+  config:
+    activate:
+      on-profile: local
+  data:
+    mongodb:
+      # [ATENCIÓN EQUIPO]: Si usan Mongo local, esta URL espera el user 'admin' y pass 'admin12345'. 
+      # Si su Mongo local no tiene contraseña, cámbienla a: mongodb://localhost:27017/database_local
+      uri: mongodb://admin:admin12345@localhost:27017/database_local?authSource=admin
+      auto-index-creation: true
+
+# PERFIL: CLOUD (MongoDB Atlas)
+spring:
+  config:
+    activate:
+      on-profile: cloud
+  data:
+    mongodb:
+      # [ATENCIÓN EQUIPO]: Aquí está la conexión al Mongo Atlas. 
+      # Si van a usar su propia base de datos, reemplacen el usuario, contraseña y la URL del cluster aquí abajo.
+      uri: mongodb+srv://hugofernandez_db_user:PmHQ4BXXbNvyxo6v@cluster0.pzehdgj.mongodb.net/agropacayales_db?appName=Cluster0
+      auto-index-creation: true
