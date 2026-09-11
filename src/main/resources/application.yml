@@ -1,4 +1,3 @@
-
 # GUÍA DE ARRANQUE RÁPIDO (Comandos Maven)
 
 # 1. Para arrancar en modo LOCAL (usado por defecto):
@@ -8,10 +7,9 @@
 #    mvn spring-boot:run -Dspring-boot.run.profiles=cloud
 
 
-
 # CONFIGURACIÓN GENERAL (Común)
 server:
-  port: 8081
+  port: ${SERVER_PORT:8081}
 
 spring:
   application:
@@ -33,6 +31,7 @@ logging:
     Agropacayales.valleGrande: DEBUG
     org.springframework.data.mongodb.core.ReactiveMongoTemplate: DEBUG
 
+---
 # PERFIL: LOCAL (Tu computadora / Docker)
 spring:
   config:
@@ -40,19 +39,18 @@ spring:
       on-profile: local
   data:
     mongodb:
-      # [ATENCIÓN EQUIPO]: Si usan Mongo local, esta URL espera el user 'admin' y pass 'admin12345'. 
-      # Si su Mongo local no tiene contraseña, cámbienla a: mongodb://localhost:27017/database_local
+      # Si tu Mongo local no tiene contraseña, cámbiala a: mongodb://localhost:27017/database_local
       uri: mongodb://admin:admin12345@localhost:27017/database_local?authSource=admin
       auto-index-creation: true
 
-# PERFIL: CLOUD (MongoDB Atlas)
+---
+# PERFIL: CLOUD (MongoDB Atlas - Axel)
 spring:
   config:
     activate:
       on-profile: cloud
   data:
     mongodb:
-      # [ATENCIÓN EQUIPO]: Aquí está la conexión al Mongo Atlas. 
-      # Si van a usar su propia base de datos, reemplacen el usuario, contraseña y la URL del cluster aquí abajo.
-      uri: mongodb+srv://hugofernandez_db_user:PmHQ4BXXbNvyxo6v@cluster0.pzehdgj.mongodb.net/agropacayales_db?appName=Cluster0
+      uri: ${MONGO_URI:mongodb+srv://axelhuapaya_db_user:lider2021@cluster0.oyk6ogs.mongodb.net/?appName=Cluster0}
+      database: ${MONGO_DATABASE:agropacayales_db}
       auto-index-creation: true
