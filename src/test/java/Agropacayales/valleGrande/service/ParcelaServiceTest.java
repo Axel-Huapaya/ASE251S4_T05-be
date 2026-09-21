@@ -3,7 +3,7 @@ package Agropacayales.valleGrande.service;
 import Agropacayales.valleGrande.exception.BusinessValidationException;
 import Agropacayales.valleGrande.exception.ResourceNotFoundException;
 import Agropacayales.valleGrande.model.Parcela;
-import Agropacayales.valleGrande.repository.ParcelaRepository;
+import Agropacayales.valleGrande.repository.mongo.ParcelaRepository;
 import Agropacayales.valleGrande.service.impl.ParcelaServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

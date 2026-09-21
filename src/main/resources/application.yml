@@ -16,6 +16,15 @@ spring:
     name: AgroPacayales-WebFlux
   profiles:
     active: local
+  # Configuración Reactiva R2DBC para SQL Server 2022 (Transacciones)
+  r2dbc:
+    url: ${R2DBC_URL:r2dbc:sqlserver://${SQL_HOST:localhost}:${SQL_PORT:1433}/${SQL_DATABASE:agropacayales_db}?sendStringParametersAsUnicode=false}
+    username: ${SQL_USERNAME:sa}
+    password: ${SQL_PASSWORD:AgroPacayales2026!}
+    pool:
+      enabled: true
+      initial-size: 2
+      max-size: 10
 
 springdoc:
   api-docs:
@@ -30,6 +39,8 @@ logging:
     root: INFO
     Agropacayales.valleGrande: DEBUG
     org.springframework.data.mongodb.core.ReactiveMongoTemplate: DEBUG
+    org.springframework.data.r2dbc: DEBUG
+    io.r2dbc.mssql: INFO
 
 ---
 # PERFIL: LOCAL (Tu computadora / Docker)
@@ -40,7 +51,7 @@ spring:
   data:
     mongodb:
       # Si tu Mongo local no tiene contraseña, cámbiala a: mongodb://localhost:27017/database_local
-      uri: mongodb://admin:admin12345@localhost:27017/database_local?authSource=admin
+      uri: ${MONGO_URI_LOCAL:mongodb://admin:admin12345@localhost:27017/database_local?authSource=admin}
       auto-index-creation: true
 
 ---

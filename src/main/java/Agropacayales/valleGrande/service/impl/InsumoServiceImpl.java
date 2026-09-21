@@ -3,7 +3,7 @@ package Agropacayales.valleGrande.service.impl;
 import Agropacayales.valleGrande.exception.BusinessValidationException;
 import Agropacayales.valleGrande.exception.ResourceNotFoundException;
 import Agropacayales.valleGrande.model.Insumo;
-import Agropacayales.valleGrande.repository.InsumoRepository;
+import Agropacayales.valleGrande.repository.mongo.InsumoRepository;
 import Agropacayales.valleGrande.service.InsumoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

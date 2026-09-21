@@ -35,6 +35,25 @@
             <artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
         </dependency>
 
+        <!-- Spring Data R2DBC (Reactive SQL Server) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-r2dbc</artifactId>
+        </dependency>
+
+        <!-- Driver R2DBC para Microsoft SQL Server -->
+        <dependency>
+            <groupId>io.r2dbc</groupId>
+            <artifactId>r2dbc-mssql</artifactId>
+            <version>1.0.2.RELEASE</version>
+        </dependency>
+
+        <!-- Pool de conexiones reactivas R2DBC -->
+        <dependency>
+            <groupId>io.r2dbc</groupId>
+            <artifactId>r2dbc-pool</artifactId>
+        </dependency>
+
         <!-- Bean Validation -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

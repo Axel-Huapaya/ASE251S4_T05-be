@@ -1,4 +1,4 @@
-package Agropacayales.valleGrande.repository;
+package Agropacayales.valleGrande.repository.mongo;
 
 import Agropacayales.valleGrande.model.Insumo;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;

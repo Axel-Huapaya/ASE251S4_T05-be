@@ -3,7 +3,7 @@ package Agropacayales.valleGrande.service;
 import Agropacayales.valleGrande.exception.BusinessValidationException;
 import Agropacayales.valleGrande.exception.ResourceNotFoundException;
 import Agropacayales.valleGrande.model.Insumo;
-import Agropacayales.valleGrande.repository.InsumoRepository;
+import Agropacayales.valleGrande.repository.mongo.InsumoRepository;
 import Agropacayales.valleGrande.service.impl.InsumoServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
